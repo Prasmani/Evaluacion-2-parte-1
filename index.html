@@ -1,54 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-      #average {
-        margin: 16px 0;
-        padding: 10px;
-        background-color: #f0f0f0;
-        border: 1px solid #04167c;
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color:#04167c
-      }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de Promedios Alumnos Inacap</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Notas Asignatura Front-End</h2>
-    <div id="average">Promedio General del Curso : N/A</div>
+  <div class="container">
+    <header>
+      <h1>Notas Asignatura Front-End De Inacap</h1>
+    </header>
 
-    <form id="studentForm">
-      <div>
-        <label for="name">Nombre :</label>
-        <input type="text" id="name" required>
-      </div>
-      <div>
-        <label for="lastName">Apellido: </label>
-        <input type="text" id="lastName" required>
-      </div>
-      <div>
-        <label for="grade">Nota: </label>
-        <input type="number" id="grade" step="0.1" min="1" max="7">
-      </div>
-      <button type="submit">Guardar</button>
-    </form>
-    <table id="studentsTable" border="1" cellpadding="8" cellspacing="0">
-     <thead>
-       <tr>
-        <th>Nombre : </th>
-        <th>Apellido : </th>
-        <th>Nota : </th>
-       </tr>
-     </thead>
-     <tbody>
-        <!-- Filas de datos-->
-     </tbody>
-    </table>
-   <script src="script.js"></script> 
+    <section id="average-section">
+      <div id="average">Promedio General del Curso: N/A</div>
+    </section>
+
+    <section class="form-section">
+      <form id="studentForm">
+        <div class="form-group">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" id="lastName" required />
+        </div>
+        <div class="form-group">
+          <label for="grade">Nota:</label>
+          <input type="number" id="grade" step="0.1" min="1" max="7" required />
+        </div>
+        <button type="submit">Registrar Nota</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <table id="studentsTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas de estudiantes -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
