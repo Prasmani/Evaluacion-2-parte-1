@@ -8,6 +8,22 @@ const lastNameInput = document.getElementById("lastName");
 const gradeInput = document.getElementById("grade");
 const tableBody = document.querySelector("#studentsTable tbody");
 const averageDiv = document.getElementById("average");
+const totalStudentsDiv = document.getElementById("total-students");
+const approvedStudentsDiv = document.getElementById("approved-students");
+const failedStudentsDiv = document.getElementById("failed-students");
+
+/************************************************************
+ * FUNCION: Calcular estadísticas
+ ************************************************************/
+function calcularEstadisticas() {
+  const total = students.length;
+  const aprobados = students.filter(student => student.grade >= 4.0).length;
+  const reprobados = total - aprobados;
+  
+  totalStudentsDiv.textContent = `Total de estudiantes: ${total}`;
+  approvedStudentsDiv.textContent = `Cantidad de aprobados: ${aprobados}`;
+  failedStudentsDiv.textContent = `Cantidad de reprobados: ${reprobados}`;
+}
 
 /************************************************************
  * EVENTO: Envío del Formulario
@@ -47,6 +63,7 @@ document.getElementById("studentForm").addEventListener("submit", function (e) {
   students.push(student);
   renderTable();
   calcularPromedio();
+  calcularEstadisticas();
   this.reset();
 });
 
@@ -97,6 +114,7 @@ function eliminarEstudiante(event) {
   students.splice(index, 1);
   renderTable();
   calcularPromedio();
+  calcularEstadisticas();
 }
 
 /************************************************************
@@ -143,4 +161,8 @@ function guardarModificacion(index, row) {
 
   renderTable();
   calcularPromedio();
+  calcularEstadisticas();
 }
+
+// Inicializar estadísticas al cargar la página
+calcularEstadisticas();

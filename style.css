@@ -1,8 +1,8 @@
 :root {
-  --color-primary: #6C3483;  /* Morado intenso */
+  --color-primary: #6C3483;
   --color-primary-dark: #4A235A;
   --color-primary-light: #EBDEF0;
-  --color-secondary: #283747;  /* Azul noche */
+  --color-secondary: #283747;
   --color-text: #2C3E50;
   --color-text-light: #7B7D7D;
   --color-border: #D2B4DE;
@@ -24,12 +24,13 @@
   --radius-lg: 12px;
 }
 
-/* Reset y estilos base */
+/* Reset y base */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background-color: var(--color-background);
@@ -57,7 +58,7 @@ header h1 {
   font-weight: 700;
 }
 
-/* Sección de promedio */
+/* Sección promedio */
 #average {
   background-color: var(--color-primary-light);
   border: 2px solid var(--color-primary);
@@ -80,8 +81,17 @@ header h1 {
   padding: var(--space-lg);
   border-radius: var(--radius-md);
 }
+
 .form-group {
   margin-bottom: var(--space-md);
+}
+
+.form-group.button-group {
+  text-align: center;
+}
+
+.form-group.button-group button {
+  width: auto;
 }
 
 label {
@@ -98,11 +108,13 @@ input {
   font-size: 1rem;
   transition: all var(--transition-time) ease;
 }
+
 input:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 2px rgba(177, 18, 38, 0.2);
 }
+
 input:invalid {
   border-color: var(--color-danger);
 }
@@ -118,8 +130,58 @@ button {
   transition: all var(--transition-time) ease;
   width: 100%;
 }
+
 button:hover {
   background-color: var(--color-primary-dark);
+}
+
+/* Sección estadísticas */
+#stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+#stats-section div {
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos individuales */
+#total-students {
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+#approved-students {
+  background-color: #28B463;
+  border: 1px solid #1D8348;
+  color: white;
+}
+
+#failed-students {
+  background-color: #E74C3C;
+  border: 1px solid #922B21;
+  color: white;
+}
+
+
+/* Responsive estadísticas */
+@media (max-width: 768px) {
+  #stats-section {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  #stats-section div {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.9rem;
+  }
 }
 
 /* Sección de tabla */
@@ -153,9 +215,11 @@ button:hover {
   position: sticky;
   top: 0;
 }
+
 #studentsTable tr:nth-child(even) {
   background-color: var(--color-white);
 }
+
 #studentsTable tr:hover {
   background-color: #f0f0f0;
 }
